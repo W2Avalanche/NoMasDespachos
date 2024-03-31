@@ -32,7 +32,17 @@
     <br>
     <br>
     <br>
-    <i>Disclaimer:</i> La consulta es pasada a una Raspberry (un ordenador xikitito) que hay en mi casa, para posteriormente preguntarle a RIOT. Los datos que pasan son: tu IP y el nombre de la cuenta que buscas. Los datos no se guardan (he quitado el <i>print</i>), pero ahí te tienes que fiar de mi palabra.
+    <i>Disclaimer:</i> La consulta es pasada a una Raspberry (un ordenador xikitito) que hay en mi casa o, en su defecto, a un servidor de Google Cloud, para posteriormente preguntarle a RIOT.
+    <br>
+    <br>
+    <h6>¿Qué implicaciones tiene?</h6>
+    Ese servidor está bajo dominio y control de <a href="https://twitter.com/DevLatra">Latra</a>. Podría (pero no lo hago) guardar los siguientes datos:
+    <br>
+    - Hora de la consulta
+    <br>
+    - Cuenta consultada
+    <br>
+    - Tu IP pública
   </div>
 
   <!-- Agregar los archivos JavaScript de Bootstrap (opcional, solo si necesitas funcionalidades específicas de Bootstrap) -->
@@ -43,7 +53,7 @@
     function consultarAPI() {
       const summoner = document.getElementById('summoner').value;
       const tag = document.getElementById('tag').value.replace("#", "");
-      const url = `https://stopdespachosapi.latragallucci.dev:8080/games/?summoner=${encodeURIComponent(summoner)}&tag=${encodeURIComponent(tag)}`;
+      const url = `https://stopdespachosapi.latragallucci.dev/games/?summoner=${encodeURIComponent(summoner)}&tag=${encodeURIComponent(tag)}`;
       document.getElementById('resultado').innerText = `Consultando los archivos...`;
 
       fetch(url)
