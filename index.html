@@ -21,7 +21,7 @@
     function consultarAPI() {
       const summoner = document.getElementById('summoner').value;
       const tag = document.getElementById('tag').value;
-      const url = `http://stopdespachosapi.latragallucci.dev:8080/games/?summoner=${encodeURIComponent(summoner)}&tag=${encodeURIComponent(tag)}`;
+      const url = `https://213.195.97.30:8080/games/?summoner=${encodeURIComponent(summoner)}&tag=${encodeURIComponent(tag)}`;
 
       fetch(url)
         .then(response => {
