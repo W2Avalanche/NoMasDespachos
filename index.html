@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STOP DESPACHOS</title>
+</head>
+<body>
+  <h1>NO MÁS DESPACHOS DEL CT</h1>
+  <label for="texto"></label>
+  <input type="text" id="summoner" placeholder="SUMMONER">
+  <input type="text" id="tag" placeholder="#TAG">
+  <button onclick="consultarAPI()">¿Cuantas rankeds hay registradas?</button>
+  <p id="resultado"></p>
+
+  <i>Powered by W2A. Expertos en Frontend desde 2024</i>
+
+  <script>
+    function consultarAPI() {
+      const summoner = document.getElementById('summoner').value;
+      const tag = document.getElementById('tag').value;
+      const url = `http://127.0.0.1:8000/games/?summoner=${encodeURIComponent(summoner)}&tag=${encodeURIComponent(tag)}`;
+
+      fetch(url)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Error en la llamada a la API');
+          }
+          return response.json();
+        })
+        .then(data => {
+          document.getElementById('resultado').innerText = `Número devuelto por la API: ${data}`;
+        })
+        .catch(error => {
+          console.error('Error:', error);
+          document.getElementById('resultado').innerText = 'Error al consultar la API';
+        });
+    }
+  </script>
+</body>
+</html>
