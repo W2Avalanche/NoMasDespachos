@@ -18,10 +18,11 @@
   <i>Powered by W2A. Expertos en Frontend desde 2024</i>
 
   <script>
+    process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 0;
     function consultarAPI() {
       const summoner = document.getElementById('summoner').value;
       const tag = document.getElementById('tag').value;
-      const url = `https://79.116.65.92:8080/games/?summoner=${encodeURIComponent(summoner)}&tag=${encodeURIComponent(tag)}`;
+      const url = `https://stopdespachosapi.latragallucci.dev:8080/games/?summoner=${encodeURIComponent(summoner)}&tag=${encodeURIComponent(tag)}`;
 
       fetch(url)
         .then(response => {
