@@ -40,11 +40,12 @@
       const summoner = document.getElementById('summoner').value;
       const tag = document.getElementById('tag').value.replace("#", "");
       const url = `https://stopdespachosapi.latragallucci.dev:8080/games/?summoner=${encodeURIComponent(summoner)}&tag=${encodeURIComponent(tag)}`;
+      document.getElementById('resultado').innerText = `Consultando los archivos...`;
 
       fetch(url)
         .then(response => {
           if (!response.ok) {
-            throw new Error('Baia, se ha roto.');
+            throw new Error('Algo hemos roto. Perdón 😣');
           }
           return response.json();
         })
@@ -53,7 +54,7 @@
         })
         .catch(error => {
           console.error('Error:', error);
-          document.getElementById('resultado').innerText = 'Algo hemos roto. Perdón 😣';
+          document.getElementById('resultado').innerText = '¿Seguro que el nick está bien puesto? Quizás somos nosotros, pero... Nose, revisa.';
         });
     }
   </script>
