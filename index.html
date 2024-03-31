@@ -49,11 +49,11 @@
           return response.json();
         })
         .then(data => {
-          document.getElementById('resultado').innerText = `Número devuelto por la API: ${data}`;
+          document.getElementById('resultado').innerText = `Hemos contado hasta: ${data}`;
         })
         .catch(error => {
           console.error('Error:', error);
-          document.getElementById('resultado').innerText = 'Error al consultar la API';
+          document.getElementById('resultado').innerText = 'Algo hemos roto. Perdón 😣';
         });
     }
   </script>
